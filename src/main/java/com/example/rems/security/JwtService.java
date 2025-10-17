@@ -1,5 +1,6 @@
 package com.example.rems.security;
 
+import com.auth0.jwt.algorithms.Algorithm;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -9,7 +10,9 @@ import java.util.Base64;
 import java.util.Date;
 import java.util.Set;
 
-import static org.springframework.security.config.Elements.JWT;
+import com.auth0.jwt.JWT;
+
+//import static org.springframework.security.config.Elements.JWT;
 
 @Service
 public class JwtService {

@@ -24,21 +24,21 @@ public class AuthService {
     }
 
     public void register(RegisterRequest req) {
-        if (users.existsByEmail(req.email())) {
+        if (users.existsByEmail(req.getEmail())) {
             throw new IllegalArgumentException("Email already registered");
         }
         var user = User.builder()
-                .email(req.email())
-                .password(encoder.encode(req.password()))
+                .email(req.getEmail())
+                .password(encoder.encode(req.getPassword()))
                 .roles(Set.of("ROLE_USER"))
                 .build();
         users.save(user);
     }
 
     public AuthResponse login(LoginRequest req) {
-        authMgr.authenticate(new UsernamePasswordAuthenticationToken(req.email(), req.password()));
-        var roles = users.findByEmail(req.email()).orElseThrow().getRoles();
-        String token = jwt.generate(req.email(), roles);
+        authMgr.authenticate(new UsernamePasswordAuthenticationToken(req.getEmail(), req.getPassword()));
+        var roles = users.findByEmail(req.getEmail()).orElseThrow().getRoles();
+        String token = jwt.generate(req.getEmail(), roles);
         return new AuthResponse(token, "Bearer");
     }
 }
