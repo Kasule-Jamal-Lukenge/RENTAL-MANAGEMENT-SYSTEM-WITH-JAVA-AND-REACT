@@ -1,5 +1,6 @@
-package com.example.rems.auth;
+package com.example.rems.repositories;
 
+import com.example.rems.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

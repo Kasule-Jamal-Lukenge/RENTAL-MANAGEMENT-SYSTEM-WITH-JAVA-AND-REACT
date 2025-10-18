@@ -1,6 +1,8 @@
 package com.example.rems.auth;
 
 import com.example.rems.auth.dto.*;
+import com.example.rems.models.User;
+import com.example.rems.repositories.UserRepository;
 import com.example.rems.security.JwtService;
 import org.springframework.security.authentication.*;
 import org.springframework.security.crypto.password.PasswordEncoder;

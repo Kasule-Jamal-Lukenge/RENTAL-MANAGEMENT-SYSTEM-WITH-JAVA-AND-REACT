@@ -1,6 +1,6 @@
 package com.example.rems.security;
 
-import com.example.rems.auth.UserRepository;
+import com.example.rems.repositories.UserRepository;
 import org.springframework.security.core.userdetails.*;
 import org.springframework.stereotype.Service;
 
